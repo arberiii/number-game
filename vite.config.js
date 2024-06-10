@@ -8,9 +8,9 @@ export default defineConfig({
   plugins: [svelte({
     preprocess: vitePreprocess()
   })],
-  server: {
-    port: 3006,
-  },
+  // server: {
+  //   port: 3006,
+  // },
   build: {
     rollupOptions: {
       output: {
