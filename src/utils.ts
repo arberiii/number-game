@@ -130,7 +130,7 @@ export function contractNum(n: number) {
 	}
 }
 
-export const keys = ["qwertyuiop", "asdfghjkl", "zxcvbnm"];
+export const keys = ["0123", "456", "789"];
 
 /**
  * Return a deterministic number based on the given mode and current or given time.
@@ -257,6 +257,11 @@ export class GameState extends Storable {
 	}
 	get latestWord() {
 		return this.board.words[this.guesses];
+	}
+
+	get latestNumber() {
+		return Number(this.board.words[this.guesses]);
+
 	}
 	get lastState() {
 		return this.board.state[this.guesses - 1];

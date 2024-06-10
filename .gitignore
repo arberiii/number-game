@@ -1,6 +1,7 @@
 /node_modules/
 /public/build/
 /dist/
+/.idea
 
 package-lock.json
 test.html
