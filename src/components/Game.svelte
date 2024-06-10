@@ -60,24 +60,6 @@
 			toaster.pop("Not enough numbers");
 			board.shake(game.guesses);
 		} else if (game.latestNumber >= 10000 && game.latestNumber <= 99999){
-			// if (game.guesses > 0) {
-			// 	const hm = game.checkHardMode();
-			// 	if ($settings.hard[$mode]) {
-			// 		if (hm.type === "🟩") {
-			// 			toaster.pop(
-			// 				`${contractNum(hm.pos + 1)} letter must be ${hm.char.toUpperCase()}`
-			// 			);
-			// 			board.shake(game.guesses);
-			// 			return;
-			// 		} else if (hm.type === "🟨") {
-			// 			toaster.pop(`Guess must contain ${hm.char.toUpperCase()}`);
-			// 			board.shake(game.guesses);
-			// 			return;
-			// 		}
-			// 	} else if (hm.type !== "⬛") {
-			// 		game.validHard = false;
-			// 	}
-			// }
 			game.board.state[game.guesses] = game.guess(word);
 			++game.guesses;
 			$letterStates.update(game.lastState, game.lastWord);

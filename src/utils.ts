@@ -227,7 +227,6 @@ abstract class Storable {
 export class GameState extends Storable {
 	public active: boolean;
 	public guesses: number;
-	public validHard: boolean;
 	public time: number;
 	public wordNumber: number;
 	public board: GameBoard;
@@ -244,7 +243,6 @@ export class GameState extends Storable {
 		if (!this.#valid) {
 			this.active = true;
 			this.guesses = 0;
-			this.validHard = true;
 			this.time = modeData.modes[mode].seed;
 			this.wordNumber = getWordNumber(mode);
 			this.board = {
@@ -269,23 +267,6 @@ export class GameState extends Storable {
 	get lastWord() {
 		return this.board.words[this.guesses - 1];
 	}
-	/**
-	* Returns an object containing the position of the character in the latest word that violates
-	* hard mode, and what type of violation it is, if there is a violation.
-	*/
-	checkHardMode(): HardModeData {
-		for (let i = 0; i < COLS; ++i) {
-			if (this.board.state[this.guesses - 1][i] === "🟩" && this.board.words[this.guesses - 1][i] !== this.board.words[this.guesses][i]) {
-				return { pos: i, char: this.board.words[this.guesses - 1][i], type: "🟩" };
-			}
-		}
-		for (let i = 0; i < COLS; ++i) {
-			if (this.board.state[this.guesses - 1][i] === "🟨" && !this.board.words[this.guesses].includes(this.board.words[this.guesses - 1][i])) {
-				return { pos: i, char: this.board.words[this.guesses - 1][i], type: "🟨" };
-			}
-		}
-		return { pos: -1, char: "", type: "⬛" };
-	}
 	guess(word: string) {
 		const characters = word.split("");
 		const result = Array<LetterState>(COLS).fill("⬛");
@@ -309,7 +290,6 @@ export class GameState extends Storable {
 		if (parsed.wordNumber !== getWordNumber(this.#mode)) return;
 		this.active = parsed.active;
 		this.guesses = parsed.guesses;
-		this.validHard = parsed.validHard;
 		this.time = parsed.time;
 		this.wordNumber = parsed.wordNumber;
 		this.board = parsed.board;
@@ -319,7 +299,6 @@ export class GameState extends Storable {
 }
 
 export class Settings extends Storable {
-	public hard = new Array(modeData.modes.length).fill(false);
 	public dark = true;
 	public colorblind = false;
 	public tutorial: 0 | 1 | 2 | 3 = 3;
@@ -328,7 +307,6 @@ export class Settings extends Storable {
 		super();
 		if (settings) {
 			const parsed = JSON.parse(settings) as Settings;
-			this.hard = parsed.hard;
 			this.dark = parsed.dark;
 			this.colorblind = parsed.colorblind;
 			this.tutorial = parsed.tutorial;

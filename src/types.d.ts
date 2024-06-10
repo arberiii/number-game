@@ -75,12 +75,6 @@ type Mode = {
 	useTimeZone?: boolean,
 };
 
-type HardModeData = {
-	pos: number,
-	char: string,
-	type: "🟩" | "🟨" | "⬛",
-};
-
 type Subscriber<T> = [(val: T) => void, (val?: T) => void];
 
 type Direction = "top" | "right" | "bottom" | "left";

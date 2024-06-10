@@ -1,9 +1,7 @@
 <script context="module" lang="ts">
 	const tips = [
 		"You can change the gamemode by clicking WORDLE+ or swiping the board left or right.",
-		"Hard mode is game mode specific. Turning it on in one game mode won't change it on the others.",
 		"Double tap or right click a word on the board to learn its definition.",
-		"Hard mode can be enabled during a game if you haven't violated the hard mode rules yet.",
 		"Double tap or right click the next row to see how many possible words can be played there, if you use all the previous information.",
 		"Because words are chosen from the list randomly it is possible to get the same word again.",
 		"When you see the refresh button in the top left corner it means a new word is ready.",

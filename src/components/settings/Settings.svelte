@@ -32,20 +32,6 @@
 	<div class="settings-top">
 		<h3>settings</h3>
 		<!-- svelte-ignore a11y-click-events-have-key-events -->
-		<div
-			on:click={() => {
-				if (!state.validHard) {
-					toaster.pop("Game has already violated hard mode");
-				}
-			}}
-		>
-			<Setting type="switch" bind:value={$settings.hard[$mode]} disabled={!state.validHard}>
-				<svelte:fragment slot="title">Hard Mode</svelte:fragment>
-				<svelte:fragment slot="desc">
-					Any revealed hints must be used in subsequent guesses
-				</svelte:fragment>
-			</Setting>
-		</div>
 		<Setting type="switch" bind:value={$settings.dark}>
 			<svelte:fragment slot="title">Dark Theme</svelte:fragment>
 		</Setting>
