@@ -68,7 +68,7 @@
 			<a href="https://github.com/MikhaD/wordle" target="_blank" rel="noreferrer">
 				Leave a ⭐
 			</a>
-			<a href="https://github.com/MikhaD/wordle/issues" target="_blank" rel="noreferrer">
+			<a href="https://github.com/arberiii/number-game/issues" target="_blank" rel="noreferrer">
 				Report a Bug
 			</a>
 		</div>

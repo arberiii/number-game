@@ -7,6 +7,7 @@
 		Settings,
 		LetterStates,
 		getWordNumber,
+		allowedNumbers,
 		words,
 	} from "./utils";
 	import Game from "./components/Game.svelte";
@@ -45,8 +46,7 @@
 		localStorage.setItem("mode", `${m}`);
 		window.location.hash = GameMode[m];
 		stats = new Stats(localStorage.getItem(`stats-${m}`) || m);
-
-		word = String(seededRandomInt(0, 90000, modeData.modes[m].seed) + 10000);
+		word = String(allowedNumbers.numbers[seededRandomInt(0, allowedNumbers.numbers.length, modeData.modes[m].seed)]);
 		if (modeData.modes[m].historical) {
 			state = new GameState(m, localStorage.getItem(`state-${m}-h`));
 		} else {

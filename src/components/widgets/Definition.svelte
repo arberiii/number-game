@@ -7,5 +7,5 @@
 </script>
 
 <div class="def">
-	<div>Your word was <strong>{word}</strong>.</div>
+	<div>Your number was <strong>{word}</strong>.</div>
 </div>

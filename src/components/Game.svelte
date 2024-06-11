@@ -59,6 +59,9 @@
 		if (game.latestWord.length !== COLS) {
 			toaster.pop("Not enough numbers");
 			board.shake(game.guesses);
+		} else if (game.hasRepeatedDigits()) {
+			toaster.pop("Number should not have repeated digits");
+			board.shake(game.guesses);
 		} else if (game.latestNumber >= 10000 && game.latestNumber <= 99999){
 			game.board.state[game.guesses] = game.guess(word);
 			++game.guesses;

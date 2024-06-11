@@ -10,9 +10,9 @@ export default defineConfig({
     preprocess: vitePreprocess()
   }), vercel()],
   vercel: {},
-  // server: {
-  //   port: 3006,
-  // },
+  server: {
+    port: 3006,
+  },
   build: {
     rollupOptions: {
       output: {
