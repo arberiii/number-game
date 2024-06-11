@@ -68,10 +68,6 @@
 	}
 </script>
 
-{#if showCtx}
-	<ContextMenu {pAns} {pSols} {x} {y} {word} />
-{/if}
-
 <div class="board" on:touchstart={swipeStart} on:touchend={swipeEnd} on:touchmove|preventDefault>
 	{#each value as _, i}
 		<Row

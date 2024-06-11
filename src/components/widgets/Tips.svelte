@@ -1,7 +1,6 @@
 <script context="module" lang="ts">
 	const tips = [
 		"You can change the gamemode by clicking NUMBERLE+ or swiping the board left or right.",
-		"Double tap or right click the next row to see how many possible words can be played there, if you use all the previous information.",
 		"Because words are chosen from the list randomly it is possible to get the same word again.",
 		"When you see the refresh button in the top left corner it means a new word is ready.",
 		"Everyone has the same wordle at the same time. Your word #73 is the same as everyone elses #73.",
