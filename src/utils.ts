@@ -69,35 +69,6 @@ class WordData {
 	}
 }
 
-export function generateUniqueFiveDigitNumber(seed) {
-    const digits = Array.from({ length: 10 }, (_, i) => i);
-
-    // Shuffle the digits array
-    for (let i = digits.length - 1; i > 0; i--) {
-		const j = Math.floor(Math.random() * (i+1));
-        [digits[i], digits[j]] = [digits[j], digits[i]];
-    }
-
-    // Ensure the first digit is not 0
-    if (digits[0] === 0) {
-        // Find the first non-zero digit and swap it with the first element
-        for (let i = 1; i < digits.length; i++) {
-            if (digits[i] !== 0) {
-                [digits[0], digits[i]] = [digits[i], digits[0]];
-                break;
-            }
-        }
-    }
-
-    // Select the first 5 digits and join them to form a number
-    const uniqueNumber = parseInt(digits.slice(0, 5).join(''), 10);
-
-    return uniqueNumber;
-}
-
-const randomNumber = generateUniqueFiveDigitNumber(0);
-console.log(randomNumber);
-
 export function getRowData(n: number, board: GameBoard) {
 	const wd = new WordData();
 	for (let row = 0; row < n; ++row) {
