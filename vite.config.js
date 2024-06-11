@@ -4,7 +4,7 @@ import { version } from "./package.json";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/wordle/",
+  base: "/number-game/",
   plugins: [svelte({
     preprocess: vitePreprocess()
   })],
